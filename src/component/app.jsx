@@ -1,21 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
-
-const Team = ({ name, members, winCount, totalMatchCount, id }) => (
-  <div id={id}>
-    {winCount} / {totalMatchCount}
-    {name}
-    {members.map(mName => <span key={mName}>{mName}</span>)}
-  </div>
-);
-
-const Result = ({ idx, stage, rule, winner, ko }) => (
-  <div idx={idx}>
-    <img src={`./image/stage/${stage}.png`} alt={stage} />
-    <div>{stage} / {rule}</div>
-    <div>{winner}{ko ? 'K.O.': ''}</div>
-  </div>
-);
+import Team from './team';
+import Result from './result';
 
 const App = ({ totalMatchCount, matching, results }) => (
   <Content>
@@ -58,4 +44,5 @@ const Matching = styled.div`
 `;
 
 const Results = styled.div`
+  display: flex;
 `;

@@ -2,8 +2,8 @@ import React from 'react';
 import { render } from 'react-dom';
 import { fetchCsv } from './utils';
 import parseCsv from './parse-csv';
-import GlobalStyle from './global-style';
-import App from './app';
+import GlobalStyle from './component/global-style';
+import App from './component/app';
 
 
 (async () => {

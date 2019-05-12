@@ -3,9 +3,10 @@ import { Global, css } from '@emotion/core';
 
 const GlobalStyle = () => (
   <Global styles={css({
-    'body': {
+    body: {
       margin: 0,
       backgroundColor: '#333',
+      color: '#fff'
     }
   })} />
 );

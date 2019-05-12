@@ -8,7 +8,7 @@ const parseCsv = _csv => {
         winCount: 1,
       },
       bravo: {
-        name: '地底のタコ',
+        name: '地底のタコたち',
         members: ['タコ1', 'タコ2', 'タコ3', 'タコ4'],
         winCount: 1,
       }
@@ -17,13 +17,13 @@ const parseCsv = _csv => {
       {
         stage: 'ガンガゼ野外音楽堂',
         rule: 'ガチアサリ',
-        winner: 'alpha',
+        winner: 'イカのつどい',
         ko: false,
       },
       {
         stage: 'アロワナモール',
         rule: 'ガチホコバトル',
-        winner: 'beta',
+        winner: '地底のタコたち',
         ko: true,
       },
       {
