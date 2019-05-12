@@ -10,6 +10,7 @@ const App = ({ totalMatchCount, matching, results }) => (
     </Header>
     <Matching>
       <Team {...matching.alpha} totalMatchCount={totalMatchCount} id="alpha" />
+      <Vs>VS</Vs>
       <Team {...matching.bravo} totalMatchCount={totalMatchCount} id="bravo" />
     </Matching>
     <Results>
@@ -32,7 +33,6 @@ const Content = styled.div`
 
 const Header = styled.header`
   margin-top: 20px;
-  margin-left: 20px;
 `;
 
 const Logo = styled.img`
@@ -41,6 +41,16 @@ const Logo = styled.img`
 `;
 
 const Matching = styled.div`
+  display: grid;
+  grid-template-columns: 40% 20% 40%;
+  margin: 20px auto;
+`;
+
+const Vs = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
 `;
 
 const Results = styled.div`

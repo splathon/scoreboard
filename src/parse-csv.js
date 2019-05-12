@@ -3,12 +3,12 @@ const parseCsv = _csv => {
     totalMatchCount: 3,
     matching: {
       alpha: {
-        name: 'イカのつどい',
+        name: 'イカ\'s',
         members: ['イカ1', 'イカ2', 'イカ3', 'イカ4'],
         winCount: 1,
       },
       bravo: {
-        name: '地底のタコたち',
+        name: '地底のタコのつどい',
         members: ['タコ1', 'タコ2', 'タコ3', 'タコ4'],
         winCount: 1,
       }
@@ -17,13 +17,13 @@ const parseCsv = _csv => {
       {
         stage: 'ガンガゼ野外音楽堂',
         rule: 'ガチアサリ',
-        winner: 'イカのつどい',
+        winner: 'イカ\'s',
         ko: false,
       },
       {
         stage: 'アロワナモール',
         rule: 'ガチホコバトル',
-        winner: '地底のタコたち',
+        winner: '地底のタコのつどい',
         ko: true,
       },
       {
