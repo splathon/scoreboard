@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { boardHeight, boardWidth } from '../const';
 import Team from './team';
 import Result from './result';
 
@@ -24,11 +25,14 @@ const App = ({ totalMatchCount, matching, results }) => (
 export default App;
 
 const Content = styled.div`
-  width: 1080px;
-  height: 600px;
+  position: absolute;
+  width: ${boardWidth}px;
+  height: ${boardHeight}px;
   padding: 20px;
   box-sizing: border-box;
   border: 1px solid #fff;
+  transform-origin: top left;
+  transition: all 500ms ease-in-out;
 `;
 
 const Header = styled.header`
