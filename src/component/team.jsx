@@ -8,7 +8,12 @@ const Team = ({ name, members, winCount, totalMatchCount, id }) => (
     <Counter cur={winCount} total={totalMatchCount} />
     <Name>{name}</Name>
     <Members>
-      {members.map(mName => <div key={mName}>{mName}</div>)}
+      <div>
+        <span>{members[0]}</span>{'　'}<span>{members[1]}</span>
+      </div>
+      <div>
+        <span>{members[2]}</span>{'　'}<span>{members[3]}</span>
+      </div>
     </Members>
   </Wrap>
 );
@@ -25,7 +30,8 @@ const Wrap = styled.div`
 `;
 
 const WinCount = styled.div`
-  font-size: 4rem;
+  font-size: 5rem;
+  margin-bottom: -30px;
 `;
 
 const Name = styled.div`
