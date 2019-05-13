@@ -30,7 +30,6 @@ const Content = styled.div`
   height: ${boardHeight}px;
   padding: 20px;
   box-sizing: border-box;
-  border: 1px solid #fff;
   transform-origin: top left;
   transition: all 500ms ease-in-out;
 `;
