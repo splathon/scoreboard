@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
 import styled from '@emotion/styled';
-import { boardHeight, boardWidth } from '../shared/const';
 import Team from './component/team';
 import Result from './component/result';
 
@@ -10,7 +9,7 @@ const App = props => {
   const { totalMatchCount, matching, results } = state;
 
   return (
-    <Content>
+    <>
       <Header>
         <Logo src="./image/logo/extreme.png" alt="eXtreme" />
       </Header>
@@ -24,21 +23,11 @@ const App = props => {
           <Result key={idx} {...result} idx={idx} />
         ))}
       </Results>
-    </Content>
+    </>
   );
 };
 
 export default App;
-
-const Content = styled.div`
-  position: absolute;
-  width: ${boardWidth}px;
-  height: ${boardHeight}px;
-  padding: 20px;
-  box-sizing: border-box;
-  transform-origin: top left;
-  transition: all 500ms ease-in-out;
-`;
 
 const Header = styled.header`
   margin-top: 20px;
