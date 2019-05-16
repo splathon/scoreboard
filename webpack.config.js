@@ -4,7 +4,9 @@ const rootPath = path.resolve('');
 
 const config = {
   context: rootPath,
-  entry: './src/main.jsx',
+  entry: {
+    'extreme-union-match-1': './src/extreme-union-match-1/main.jsx',
+  },
   output: {
     path: `${rootPath}/docs`,
     filename: '[name].bundle.js',

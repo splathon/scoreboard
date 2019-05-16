@@ -6,7 +6,38 @@
   <title>Splathon Scoreboard</title>
 </head>
 <body>
-  <main id="scoreboard"></main>
-  <script src="./main.bundle.js"></script>
+  <main id="app">
+    <ul>
+      <li>
+        extreme-union-match-1:
+        <a href="#!/extreme-union-match-1/preview">preview</a>
+        /
+        <a href="#!/extreme-union-match-1/main">main</a>
+      </li>
+    </ul>
+  </main>
+  <script>
+    const runAppByHash = async () => {
+      if (location.hash.length === 0) {
+        return;
+      }
+
+      const [, eventName] = location.hash.split('/');
+
+      // show loader
+      const $app = document.querySelector('#app');
+      $app.innerHTML = "Loading...";
+
+      // this may throw if hash was wrong
+      const script = document.createElement('script');
+      script.src = `./${eventName}.bundle.js`;
+      document.body.append(script);
+
+      window.removeEventListener('hashchange', runAppByHash, false);
+    };
+
+    runAppByHash();
+    window.addEventListener('hashchange', runAppByHash, false);
+  </script>
 </body>
 </html>
