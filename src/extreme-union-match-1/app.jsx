@@ -1,14 +1,15 @@
 import React from 'react';
+import { useState } from 'react';
 import styled from '@emotion/styled';
 import { boardHeight, boardWidth } from '../shared/const';
-import GlobalStyle from '../shared/component/global-style';
-import Layout from '../shared/component/layout';
 import Team from './component/team';
 import Result from './component/result';
 
-const App = ({ totalMatchCount, matching, results }) => (
-  <Layout>
-    <GlobalStyle />
+const App = props => {
+  const [state] = useState(props);
+  const { totalMatchCount, matching, results } = state;
+
+  return (
     <Content>
       <Header>
         <Logo src="./image/logo/extream.png" alt="eXtream" />
@@ -24,8 +25,8 @@ const App = ({ totalMatchCount, matching, results }) => (
         ))}
       </Results>
     </Content>
-  </Layout>
-);
+  );
+};
 
 export default App;
 
