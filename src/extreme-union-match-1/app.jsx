@@ -1,13 +1,33 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
+import { fetchAllCsv } from '../shared/utils';
 import Team from './component/team';
 import Result from './component/result';
+import parser from './csv-parser';
 
-const App = props => {
-  const [state] = useState(props);
+const fetchData = async () => {
+  const csv = await fetchAllCsv({
+    base: { id: '1dko-lAxN6sisaf13kx8s2fvuyU6i3qt8oLUxM7H-tuM', gid: 0 },
+    team: { id: '1dko-lAxN6sisaf13kx8s2fvuyU6i3qt8oLUxM7H-tuM', gid: 655221116 },
+  });
+  return parser(csv);
+};
+
+const App = () => {
+  const [state, setState] = useState(null);
+  useEffect(() => {
+    (async () => {
+      const csv = await fetchData();
+      setState(csv);
+    })();
+  }, [setState]);
+
+  if (state === null) {
+    return <p>TODO: Loading...</p>;
+  }
+
   const { totalMatchCount, matching, results } = state;
-
   return (
     <>
       <Header>
