@@ -12,7 +12,7 @@ const App = props => {
   return (
     <Content>
       <Header>
-        <Logo src="./image/logo/extream.png" alt="eXtream" />
+        <Logo src="./image/logo/extreme.png" alt="eXtreme" />
       </Header>
       <Matching>
         <Team {...matching.alpha} totalMatchCount={totalMatchCount} id="alpha" />
