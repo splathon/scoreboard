@@ -10,19 +10,20 @@
     <ul>
       <li>
         extreme-union-match-1:
-        <a href="#!/extreme-union-match-1/preview">preview</a>
+        <a href="?ev=extreme-union-match-1&preview">preview</a>
         /
-        <a href="#!/extreme-union-match-1/main">main</a>
+        <a href="?ev=extreme-union-match-1">main</a>
       </li>
     </ul>
   </main>
   <script>
-    const runAppByHash = async () => {
-      if (location.hash.length === 0) {
+    (async () => {
+      const params = new URLSearchParams(location.search);
+
+      const eventName = params.get('ev');
+      if (!eventName) {
         return;
       }
-
-      const [, eventName] = location.hash.split('/');
 
       // show loader
       const $app = document.querySelector('#app');
@@ -32,12 +33,7 @@
       const script = document.createElement('script');
       script.src = `./${eventName}.bundle.js`;
       document.body.append(script);
-
-      window.removeEventListener('hashchange', runAppByHash, false);
-    };
-
-    runAppByHash();
-    window.addEventListener('hashchange', runAppByHash, false);
+    })();
   </script>
 </body>
 </html>
