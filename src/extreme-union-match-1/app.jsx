@@ -15,9 +15,9 @@ const App = props => {
         <Logo src="./image/logo/extreme.png" alt="eXtreme" />
       </Header>
       <Matching>
-        <Team {...matching.alpha} totalMatchCount={totalMatchCount} id="alpha" />
+        <Team {...matching.alfa} totalMatchCount={totalMatchCount} id="alfa" />
         <Vs>VS</Vs>
-        <Team {...matching.blavo} totalMatchCount={totalMatchCount} id="bravo" />
+        <Team {...matching.bravo} totalMatchCount={totalMatchCount} id="bravo" />
       </Matching>
       <Results>
         {results.map((result, idx) => (

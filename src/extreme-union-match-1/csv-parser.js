@@ -5,11 +5,11 @@ export default ({ base, team }) => {
   console.log(base);
   console.log(team);
 
-  const [,, alphaName, alphaLife, ,,, minIdx] = baseCells[1];
-  const [,, blavoName, blavoLife, ,,, maxIdx] = baseCells[2];
+  const [,, alfaName, alfaLife, ,,, minIdx] = baseCells[1];
+  const [,, bravoName, bravoLife, ,,, maxIdx] = baseCells[2];
 
-  const alpha = { team: alphaName, members: [], life: alphaLife|0 };
-  const blavo = { team: blavoName, members: [], life: blavoLife|0 };
+  const alfa = { team: alfaName, members: [], life: alfaLife|0 };
+  const bravo = { team: bravoName, members: [], life: bravoLife|0 };
 
   const results = [];
   const resultsRange = { min: minIdx|0, max: maxIdx|0 };
@@ -25,20 +25,20 @@ export default ({ base, team }) => {
   }
 
   for (const team of teamCells) {
-    if (team[0] === alpha.team) {
-      alpha.members = team.slice(1, 5);
+    if (team[0] === alfa.team) {
+      alfa.members = team.slice(1, 5);
     }
-    if (team[0] === blavo.team) {
-      blavo.members = team.slice(1, 5);
+    if (team[0] === bravo.team) {
+      bravo.members = team.slice(1, 5);
     }
   }
 
-  console.log({ alpha, blavo });
+  console.log({ alfa, bravo });
   console.log(results);
 
   return {
     totalWinCount: 3,
-    matching: { alpha, blavo },
+    matching: { alfa, bravo },
     results
   };
 };

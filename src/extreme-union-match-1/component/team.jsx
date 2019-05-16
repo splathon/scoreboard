@@ -25,7 +25,7 @@ const Wrap = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: ${props =>
-    props.id === 'alpha' ? 'flex-end' : 'flex-start'
+    props.id === 'alfa' ? 'flex-end' : 'flex-start'
   }
 `;
 
