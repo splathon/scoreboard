@@ -19,9 +19,8 @@ const Layout = ({ children }) => {
       const left = Math.abs(Math.floor(((boardWidth * scale) - innerWidth) / 2));
       const top = Math.abs(Math.floor(((boardHeight * scale) - innerHeight) / 2));
 
-      $content.style.transform = `scale(${scale})`;
-      $content.style.left = `${left}px`;
-      $content.style.top = `${top}px`;
+      const transform = `scale(${scale}) translate3d(${left}px, ${top}px, 0)`;
+      $content.style.transform = transform;
     };
 
     fit();
