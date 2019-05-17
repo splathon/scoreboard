@@ -49,7 +49,6 @@ const Wrap = styled.div`
   background-color: #333;
   padding: 20px;
   box-sizing: border-box;
-  outline: 1px solid #eee;
 `;
 
 const Nav = styled.nav`
