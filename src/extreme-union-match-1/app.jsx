@@ -27,16 +27,16 @@ const App = () => {
     return <p>TODO: Loading...</p>;
   }
 
-  const { totalMatchCount, matching, results } = state;
+  const { matching, results } = state;
   return (
     <>
       <Header>
         <Logo src="./image/logo/extreme.png" alt="eXtreme" />
       </Header>
       <Matching>
-        <Team {...matching.alfa} totalMatchCount={totalMatchCount} id="alfa" />
+        <Team {...matching.alfa} id="alfa" />
         <Vs>VS</Vs>
-        <Team {...matching.bravo} totalMatchCount={totalMatchCount} id="bravo" />
+        <Team {...matching.bravo} id="bravo" />
       </Matching>
       <Results>
         {results.map((result, idx) => (

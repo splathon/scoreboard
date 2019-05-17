@@ -2,10 +2,10 @@ import React from 'react';
 import styled from '@emotion/styled';
 import Counter from './counter';
 
-const Team = ({ name, members, winCount, totalMatchCount, id }) => (
+const Team = ({ name, members, life, lifeMax, id }) => (
   <Wrap id={id}>
-    <WinCount>{winCount}</WinCount>
-    <Counter cur={winCount} total={totalMatchCount} />
+    <WinCount>{life}</WinCount>
+    <Counter cur={life} total={lifeMax} />
     <Name>{name}</Name>
     <Members>
       <div>
