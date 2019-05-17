@@ -6,14 +6,8 @@ import Loader from '../shared/component/loader';
 import Team from './component/team';
 import Result from './component/result';
 import Counter from './component/counter';
+import Preview from './component/preview';
 import { useFetch, useBroadcastChannel } from './hooks';
-
-const Preview = ({ sendUpdate }) => (
-  <div>
-    これはプレビュー画面です
-    <button onClick={sendUpdate}>main画面に反映</button>
-  </div>
-);
 
 const App = ({ eventName, isPreview }) => {
   const [viewData, setViewData] = useState(null);
@@ -27,7 +21,7 @@ const App = ({ eventName, isPreview }) => {
   const { union, matching, results } = viewData;
   return (
     <Wrap>
-      {isPreview ? (<Preview sendUpdate={() => sendUpdate(viewData)} />) : null}
+      {isPreview ? (<Nav><Preview sendUpdate={() => sendUpdate(viewData)} /></Nav>) : null}
       <header>
         <Logo eventName="extreme" />
       </header>
@@ -56,6 +50,13 @@ const Wrap = styled.div`
   padding: 20px;
   box-sizing: border-box;
   outline: 1px solid #eee;
+`;
+
+const Nav = styled.nav`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
 `;
 
 const Union = styled.div`
