@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { fetchAllCsv } from '../shared/utils';
+import Logo from '../shared/component/logo';
 import Team from './component/team';
 import Result from './component/result';
 import parser from './csv-parser';
@@ -31,7 +32,7 @@ const App = () => {
   return (
     <>
       <Header>
-        <Logo src="./image/logo/extreme.png" alt="eXtreme" />
+        <Logo eventName="extreme" />
       </Header>
       <Matching>
         <Team {...matching.alfa} id="alfa" />
@@ -51,11 +52,6 @@ export default App;
 
 const Header = styled.header`
   margin-top: 20px;
-`;
-
-const Logo = styled.img`
-  width: 149px;
-  height: 62px;
 `;
 
 const Matching = styled.div`
