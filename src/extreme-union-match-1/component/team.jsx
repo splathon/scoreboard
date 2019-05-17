@@ -4,7 +4,8 @@ import Counter from './counter';
 
 const Team = ({ name, members, life, lifeMax, id }) => (
   <Wrap id={id}>
-    <WinCount>{life}</WinCount>
+    {life === 1 ? (<Pinch id={id}>ピンチ！</Pinch>) : null}
+    <LifeCount>{life}</LifeCount>
     <Counter cur={life} total={lifeMax} />
     <Name>{name}</Name>
     <Members>
@@ -21,6 +22,7 @@ const Team = ({ name, members, life, lifeMax, id }) => (
 export default Team;
 
 const Wrap = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,7 +31,18 @@ const Wrap = styled.div`
   }
 `;
 
-const WinCount = styled.div`
+const Pinch = styled.div`
+  position: absolute;
+  top: 25%;
+  ${props =>
+    props.id === 'alfa' ? 'right' : 'left'
+  }: 20%;
+  transform: rotate(${props => props.id === 'alfa' ? 10 : -10}deg);
+  color: #ddf00f;
+  font-size: 2rem;
+`;
+
+const LifeCount = styled.div`
   font-size: 5rem;
   margin-bottom: -30px;
 `;
