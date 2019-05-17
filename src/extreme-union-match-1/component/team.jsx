@@ -33,7 +33,7 @@ const Wrap = styled.div`
 
 const Pinch = styled.div`
   position: absolute;
-  top: 25%;
+  top: 20%;
   ${props =>
     props.id === 'alfa' ? 'right' : 'left'
   }: 20%;
