@@ -32,9 +32,9 @@ const App = () => {
   const { union, matching, results } = state;
   return (
     <Wrap>
-      <Header>
+      <header>
         <Logo eventName="extreme" />
-      </Header>
+      </header>
       <Union>
         <Counter cur={union.alfa.restTeam} total={union.alfa.restTeamMax} />
         <Counter cur={union.bravo.restTeam} total={union.bravo.restTeamMax} />
@@ -59,10 +59,7 @@ const Wrap = styled.div`
   background-color: #333;
   padding: 20px;
   box-sizing: border-box;
-`;
-
-const Header = styled.header`
-  margin-top: 20px;
+  outline: 1px solid #eee;
 `;
 
 const Union = styled.div`
