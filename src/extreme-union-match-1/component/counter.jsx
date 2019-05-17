@@ -16,8 +16,6 @@ const Wrap = styled.div`
 `;
 
 const Bullet = styled.span`
-  width: 15px;
-  height: 15px;
   color: ${props =>
     props.isFill ? '#f5a623' : '#999'};
 `;

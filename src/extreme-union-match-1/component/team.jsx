@@ -44,7 +44,7 @@ const Pinch = styled.div`
 
 const LifeCount = styled.div`
   font-size: 5rem;
-  margin-bottom: -30px;
+  margin-bottom: -40px;
 `;
 
 const Name = styled.div`
