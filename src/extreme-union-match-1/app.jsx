@@ -5,6 +5,7 @@ import { fetchAllCsv } from '../shared/utils';
 import Logo from '../shared/component/logo';
 import Team from './component/team';
 import Result from './component/result';
+import Counter from './component/counter';
 import parser from './csv-parser';
 
 const fetchData = async () => {
@@ -28,12 +29,16 @@ const App = () => {
     return <p>TODO: Loading...</p>;
   }
 
-  const { matching, results } = state;
+  const { union, matching, results } = state;
   return (
     <Wrap>
       <Header>
         <Logo eventName="extreme" />
       </Header>
+      <Union>
+        <Counter cur={union.alfa.restTeam} total={union.alfa.restTeamMax} />
+        <Counter cur={union.bravo.restTeam} total={union.bravo.restTeamMax} />
+      </Union>
       <Matching>
         <Team {...matching.alfa} id="alfa" />
         <Vs>VS</Vs>
@@ -58,6 +63,12 @@ const Wrap = styled.div`
 
 const Header = styled.header`
   margin-top: 20px;
+`;
+
+const Union = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 10px auto;
 `;
 
 const Matching = styled.div`

@@ -6,8 +6,8 @@ export default ({ base, team }) => {
   console.log(team);
 
   // parse raw data
-  const [,, alfaName, alfaLife, alfaLifeMax, restTeamCountA, ,, minIdx] = baseCells[1];
-  const [,, bravoName, bravoLife, bravoLifeMax, restTeamCountB,,, maxIdx] = baseCells[2];
+  const [,, alfaName, alfaLife, alfaLifeMax, unionARestTeam, unionARestTeamMax, , minIdx] = baseCells[1];
+  const [,, bravoName, bravoLife, bravoLifeMax, unionBRestTeam, unionBRestTeamMax,, maxIdx] = baseCells[2];
   const resultsRange = { min: minIdx|0, max: maxIdx|0 };
   const resultCells = baseCells.slice(
     5 + resultsRange.min,
@@ -16,8 +16,8 @@ export default ({ base, team }) => {
 
   // union
   const union = {
-    alfa: { restTeam: restTeamCountA|0 },
-    bravo: { restTeam: restTeamCountB|0 },
+    alfa: { restTeam: unionARestTeam|0, restTeamMax: unionARestTeamMax|0 },
+    bravo: { restTeam: unionBRestTeam|0, restTeamMax: unionBRestTeamMax|0 },
   };
 
   // matching
