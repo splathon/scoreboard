@@ -5,10 +5,22 @@ export default ({ base, team }) => {
   console.log(base);
   console.log(team);
 
-  // parse match teams
-  const [,, alfaName, alfaLife, alfaLifeMax, ,,, minIdx] = baseCells[1];
-  const [,, bravoName, bravoLife, bravoLifeMax, ,,, maxIdx] = baseCells[2];
+  // parse raw data
+  const [,, alfaName, alfaLife, alfaLifeMax, restTeamCountA, ,, minIdx] = baseCells[1];
+  const [,, bravoName, bravoLife, bravoLifeMax, restTeamCountB,,, maxIdx] = baseCells[2];
+  const resultsRange = { min: minIdx|0, max: maxIdx|0 };
+  const resultCells = baseCells.slice(
+    5 + resultsRange.min,
+    5 + resultsRange.max + 1
+  );
 
+  // union
+  const union = {
+    alfa: { restTeam: restTeamCountA|0 },
+    bravo: { restTeam: restTeamCountB|0 },
+  };
+
+  // matching
   const alfa = {
     name: alfaName,
     members: [],
@@ -21,22 +33,6 @@ export default ({ base, team }) => {
     life: bravoLife|0,
     lifeMax: bravoLifeMax|0,
   };
-
-  // parse match results
-  const results = [];
-  const resultsRange = { min: minIdx|0, max: maxIdx|0 };
-  const resultCells = baseCells.slice(
-    5 + resultsRange.min,
-    5 + resultsRange.max + 1
-  );
-  for (const result of resultCells) {
-    const [, rule, stage, winner, ko] = result;
-    results.push({
-      rule, stage, winner, ko
-    });
-  }
-
-  // fill team members
   for (const team of teamCells) {
     if (team[0] === alfa.team) {
       alfa.members = team.slice(1, 5);
@@ -44,6 +40,15 @@ export default ({ base, team }) => {
     if (team[0] === bravo.team) {
       bravo.members = team.slice(1, 5);
     }
+  }
+
+  // results
+  const results = [];
+  for (const result of resultCells) {
+    const [, rule, stage, winner, ko] = result;
+    results.push({
+      rule, stage, winner, ko
+    });
   }
 
   // fill defaults
@@ -60,10 +65,12 @@ export default ({ base, team }) => {
     bravo.members = ['タコ1', 'タコ2', 'タコ3', 'タコ4'];
   }
 
+  console.log({ union });
   console.log({ alfa, bravo });
-  console.log(results);
+  console.log({ results });
 
   return {
+    union,
     matching: { alfa, bravo },
     results
   };
