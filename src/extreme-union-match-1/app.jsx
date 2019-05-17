@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import styled from '@emotion/styled';
 import Logo from '../shared/component/logo';
 import Loader from '../shared/component/loader';
@@ -14,6 +14,7 @@ const App = ({ eventName, isPreview }) => {
   const [viewData, setViewData] = useState(null);
   useFetch(setViewData, isPreview);
   const sendUpdate = useBroadcastChannel(eventName, isPreview, setViewData);
+  const onClickSendUpdate = useCallback(() => sendUpdate(viewData), [viewData]);
 
   if (viewData === null) {
     return <Loader />;
@@ -26,7 +27,7 @@ const App = ({ eventName, isPreview }) => {
   const { union, matching, results } = viewData;
   return (
     <Wrap>
-      {isPreview ? (<Nav><Preview sendUpdate={() => sendUpdate(viewData)} /></Nav>) : null}
+      {isPreview ? (<Nav><Preview sendUpdate={onClickSendUpdate} /></Nav>) : null}
       <header>
         <Logo eventName="extreme" />
       </header>

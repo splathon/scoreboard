@@ -30,6 +30,7 @@ export const useFetch = (onFetch, isPreview) => {
 
   const fetchViewData = useCallback(async () => {
     const viewData = await fetchData();
+    console.log('fetchViewData()', viewData);
     onFetch(viewData);
   }, [onFetch]);
 
@@ -62,6 +63,7 @@ export const useBroadcastChannel = (eventName, isPreview, onUpdate) => {
     // in main: wait message from preview
     chRef.current.onmessage = ({ data }) => {
       if (data.type === 'update') {
+        console.log('on:update()', data.payload);
         onUpdate(data.payload);
       }
     };
@@ -69,6 +71,8 @@ export const useBroadcastChannel = (eventName, isPreview, onUpdate) => {
     return () => chRef.current.onmessage = null;
   }, [chRef, onUpdate, isPreview]);
 
-  return viewData =>
+  return viewData => {
+    console.log('send:update()', viewData);
     chRef.current.postMessage({ type: 'update', payload: viewData });
+  };
 };
