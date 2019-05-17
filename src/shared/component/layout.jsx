@@ -50,8 +50,6 @@ const Content = styled.div`
   position: absolute;
   width: ${boardWidth}px;
   height: ${boardHeight}px;
-  padding: 20px;
-  box-sizing: border-box;
   transform-origin: top left;
   transition: all .2s ease-in;
 `;

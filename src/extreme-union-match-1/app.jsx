@@ -30,7 +30,7 @@ const App = () => {
 
   const { matching, results } = state;
   return (
-    <>
+    <Wrap>
       <Header>
         <Logo eventName="extreme" />
       </Header>
@@ -44,11 +44,17 @@ const App = () => {
           <Result key={idx} {...result} idx={idx} />
         ))}
       </Results>
-    </>
+    </Wrap>
   );
 };
 
 export default App;
+
+const Wrap = styled.div`
+  background-color: #333;
+  padding: 20px;
+  box-sizing: border-box;
+`;
 
 const Header = styled.header`
   margin-top: 20px;
