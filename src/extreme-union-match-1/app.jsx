@@ -3,6 +3,7 @@ import { useState } from 'react';
 import styled from '@emotion/styled';
 import Logo from '../shared/component/logo';
 import Loader from '../shared/component/loader';
+import ErrorDetail from '../shared/component/error-detail';
 import Team from './component/team';
 import Result from './component/result';
 import Counter from './component/counter';
@@ -19,9 +20,7 @@ const App = ({ eventName, isPreview }) => {
   }
 
   if (viewData instanceof Error) {
-    // TODO: error
-    console.error(viewData);
-    return null;
+    return <ErrorDetail err={viewData} />;
   }
 
   const { union, matching, results } = viewData;
