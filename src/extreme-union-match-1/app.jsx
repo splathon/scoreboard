@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { fetchAllCsv } from '../shared/utils';
 import Logo from '../shared/component/logo';
+import Loader from '../shared/component/loader';
 import Team from './component/team';
 import Result from './component/result';
 import Counter from './component/counter';
@@ -26,7 +27,7 @@ const App = () => {
   }, [setState]);
 
   if (state === null) {
-    return <p>TODO: Loading...</p>;
+    return <Loader />;
   }
 
   const { union, matching, results } = state;
