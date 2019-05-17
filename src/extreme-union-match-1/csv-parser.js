@@ -34,10 +34,10 @@ export default ({ base, team }) => {
     lifeMax: bravoLifeMax|0,
   };
   for (const team of teamCells) {
-    if (team[0] === alfa.team) {
+    if (team[0] === alfa.name) {
       alfa.members = team.slice(1, 5);
     }
-    if (team[0] === bravo.team) {
+    if (team[0] === bravo.name) {
       bravo.members = team.slice(1, 5);
     }
   }
