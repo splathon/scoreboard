@@ -3,11 +3,15 @@ import { fetchAllCsv } from '../shared/utils';
 import parser from './csv-parser';
 
 const fetchData = async () => {
-  const csv = await fetchAllCsv({
-    base: { id: '1dko-lAxN6sisaf13kx8s2fvuyU6i3qt8oLUxM7H-tuM', gid: 0 },
-    team: { id: '1dko-lAxN6sisaf13kx8s2fvuyU6i3qt8oLUxM7H-tuM', gid: 655221116 },
-  });
-  return parser(csv);
+  try {
+    const csv = await fetchAllCsv({
+      base: { id: '1dko-lAxN6sisaf13kx8s2fvuyU6i3qt8oLUxM7H-tuM', gid: 0 },
+      team: { id: '1dko-lAxN6sisaf13kx8s2fvuyU6i3qt8oLUxM7H-tuM', gid: 655221116 },
+    });
+    return parser(csv);
+  } catch(err) {
+    return err;
+  }
 };
 
 /**
@@ -25,8 +29,8 @@ export const useFetch = (onFetch, isPreview) => {
   }
 
   const fetchViewData = useCallback(async () => {
-    const csv = await fetchData();
-    onFetch(csv);
+    const viewData = await fetchData();
+    onFetch(viewData);
   }, [onFetch]);
 
   useEffect(() => {

@@ -18,6 +18,12 @@ const App = ({ eventName, isPreview }) => {
     return <Loader />;
   }
 
+  if (viewData instanceof Error) {
+    // TODO: error
+    console.error(viewData);
+    return null;
+  }
+
   const { union, matching, results } = viewData;
   return (
     <Wrap>

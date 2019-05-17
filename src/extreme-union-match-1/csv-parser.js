@@ -2,9 +2,6 @@ export default ({ base, team }) => {
   const baseCells = base;
   const teamCells = team;
 
-  console.log(base);
-  console.log(team);
-
   // parse raw data
   const [,, alfaName, alfaLife, alfaLifeMax, unionARestTeam, unionARestTeamMax, , minIdx] = baseCells[1];
   const [,, bravoName, bravoLife, bravoLifeMax, unionBRestTeam, unionBRestTeamMax,, maxIdx] = baseCells[2];
@@ -64,10 +61,6 @@ export default ({ base, team }) => {
   if (bravo.members.length === 0) {
     bravo.members = ['タコ1', 'タコ2', 'タコ3', 'タコ4'];
   }
-
-  console.log({ union });
-  console.log({ alfa, bravo });
-  console.log({ results });
 
   return {
     union,
