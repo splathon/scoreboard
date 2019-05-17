@@ -54,7 +54,7 @@ const Img = styled.img`
 
 const StageAndRule = styled.div`
   font-weight: 900;
-  font-size: .7rem;
+  font-size: .8rem;
 `;
 
 const Winner = styled.div`

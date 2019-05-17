@@ -33,7 +33,7 @@ const Wrap = styled.div`
 
 const Pinch = styled.div`
   position: absolute;
-  top: 20%;
+  top: 10%;
   ${props =>
     props.id === 'alfa' ? 'right' : 'left'
   }: 20%;
@@ -44,6 +44,7 @@ const Pinch = styled.div`
 
 const LifeCount = styled.div`
   font-size: 5rem;
+  margin-top: -40px;
   margin-bottom: -40px;
 `;
 
