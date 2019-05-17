@@ -1,38 +1,33 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import styled from '@emotion/styled';
-import { fetchAllCsv } from '../shared/utils';
 import Logo from '../shared/component/logo';
 import Loader from '../shared/component/loader';
 import Team from './component/team';
 import Result from './component/result';
 import Counter from './component/counter';
-import parser from './csv-parser';
+import { useFetch, useBroadcastChannel } from './hooks';
 
-const fetchData = async () => {
-  const csv = await fetchAllCsv({
-    base: { id: '1dko-lAxN6sisaf13kx8s2fvuyU6i3qt8oLUxM7H-tuM', gid: 0 },
-    team: { id: '1dko-lAxN6sisaf13kx8s2fvuyU6i3qt8oLUxM7H-tuM', gid: 655221116 },
-  });
-  return parser(csv);
-};
+const Preview = ({ sendUpdate }) => (
+  <div>
+    これはプレビュー画面です
+    <button onClick={sendUpdate}>main画面に反映</button>
+  </div>
+);
 
-const App = () => {
-  const [state, setState] = useState(null);
-  useEffect(() => {
-    (async () => {
-      const csv = await fetchData();
-      setState(csv);
-    })();
-  }, [setState]);
+const App = ({ eventName, isPreview }) => {
+  const [viewData, setViewData] = useState(null);
+  useFetch(setViewData, isPreview);
+  const sendUpdate = useBroadcastChannel(eventName, isPreview, setViewData);
 
-  if (state === null) {
+  if (viewData === null) {
     return <Loader />;
   }
 
-  const { union, matching, results } = state;
+  const { union, matching, results } = viewData;
   return (
     <Wrap>
+      {isPreview ? (<Preview sendUpdate={() => sendUpdate(viewData)} />) : null}
       <header>
         <Logo eventName="extreme" />
       </header>
