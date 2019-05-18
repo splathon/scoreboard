@@ -2,37 +2,34 @@ import React from 'react';
 import { useEffect, useRef } from 'react';
 import styled from '@emotion/styled';
 
-const boardWidth = 1080;
-const boardHeight = 600;
-
-const Layout = ({ children }) => {
+const Layout = ({ aspect, debug, children }) => {
   const ref = useRef(null);
   useEffect(() => {
-    const fit = () => {
+    const fixSize = () => {
       const $container = ref.current;
       const $content = $container.firstElementChild;
 
       const { innerWidth, innerHeight } = window;
 
-      const scaleX = innerWidth / boardWidth;
-      const scaleY = innerHeight / boardHeight;
+      const scaleX = innerWidth / aspect[0];
+      const scaleY = innerHeight / aspect[1];
       const scale = (scaleX > scaleY) ? scaleY : scaleX;
 
-      const left = Math.abs(Math.floor(((boardWidth * scale) - innerWidth) / 2));
-      const top = Math.abs(Math.floor(((boardHeight * scale) - innerHeight) / 2));
+      const left = Math.abs(Math.floor(((aspect[0] * scale) - innerWidth) / 2));
+      const top = Math.abs(Math.floor(((aspect[1] * scale) - innerHeight) / 2));
 
       const transform = `scale(${scale}) translate3d(${left}px, ${top}px, 0)`;
       $content.style.transform = transform;
     };
 
-    fit();
-    window.addEventListener('resize', fit, false);
-    return () => window.removeEventListener('resize', fit);
-  }, [ref]);
+    fixSize();
+    window.addEventListener('resize', fixSize, false);
+    return () => window.removeEventListener('resize', fixSize);
+  }, [ref, aspect]);
 
   return (
     <Wrap ref={ref}>
-      <Content>
+      <Content aspect={aspect} debug={debug}>
         {children}
       </Content>
     </Wrap>
@@ -48,8 +45,9 @@ const Wrap = styled.div`
 
 const Content = styled.div`
   position: absolute;
-  width: ${boardWidth}px;
-  height: ${boardHeight}px;
+  width: ${props => props.aspect[0]}px;
+  height: ${props => props.aspect[1]}px;
+  ${props => props.debug ? 'outline: 1px solid #fff;' : ''}
   transform-origin: top left;
   transition: all .2s ease-in;
 `;

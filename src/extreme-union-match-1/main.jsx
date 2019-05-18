@@ -12,7 +12,7 @@ import App from './app';
   console.log('render', { eventName, isPreview });
 
   render(
-    <Layout>
+    <Layout aspect={[1600, 900]} debug={isPreview}>
       <GlobalStyle />
       <App
         {...{ eventName, isPreview }}
