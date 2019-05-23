@@ -32,8 +32,18 @@ const App = ({ eventName, isPreview }) => {
         <Logo eventName="extreme" />
       </header>
       <Union>
-        <Counter cur={union.alfa.restTeam} total={union.alfa.restTeamMax} />
-        <Counter cur={union.bravo.restTeam} total={union.bravo.restTeamMax} />
+        <Counter
+          cur={union.alfa.restTeam}
+          total={union.alfa.restTeamMax}
+          char="♦"
+          fillColor="#ffe575"
+        />
+        <Counter
+          cur={union.bravo.restTeam}
+          total={union.bravo.restTeamMax}
+          char="♦"
+          fillColor="#3a80f1"
+        />
       </Union>
       <Matching>
         <Team {...matching.alfa} id="alfa" />
@@ -67,7 +77,8 @@ const Nav = styled.nav`
 const Union = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 40px auto;
+  margin: -30px auto;
+  font-size: 4rem;
 `;
 
 const Matching = styled.div`
