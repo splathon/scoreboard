@@ -67,13 +67,13 @@ const Nav = styled.nav`
 const Union = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 10px auto;
+  margin: 40px auto;
 `;
 
 const Matching = styled.div`
   display: grid;
   grid-template-columns: 40% 20% 40%;
-  margin: 20px auto;
+  margin: 50px auto;
 `;
 
 const Vs = styled.div`

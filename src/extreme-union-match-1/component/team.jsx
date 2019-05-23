@@ -4,9 +4,11 @@ import Counter from './counter';
 
 const Team = ({ name, members, life, lifeMax, id }) => (
   <Wrap id={id}>
-    {life === 1 ? (<Pinch id={id}>ピンチ！</Pinch>) : null}
     <LifeCount>{life}</LifeCount>
-    <Counter cur={life} total={lifeMax} fillColor="#ff66ee" char="♥" />
+    <LifeWrap>
+      {life === 1 ? (<Pinch id={id}>ピンチ！</Pinch>) : null}
+      <Counter cur={life} total={lifeMax} fillColor="#ff66ee" char="♥" />
+    </LifeWrap>
     <Name>{name}</Name>
     <Members>
       <div>
@@ -22,7 +24,6 @@ const Team = ({ name, members, life, lifeMax, id }) => (
 export default Team;
 
 const Wrap = styled.div`
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -33,25 +34,29 @@ const Wrap = styled.div`
 
 const Pinch = styled.div`
   position: absolute;
-  top: 10%;
+  top: -25%;
   ${props =>
     props.id === 'alfa' ? 'right' : 'left'
-  }: 20%;
+  }: 25%;
   transform: rotate(${props => props.id === 'alfa' ? 10 : -10}deg);
   color: #ddf00f;
   font-size: 2rem;
 `;
 
-const LifeCount = styled.div`
-  font-size: 5rem;
-  margin-top: -40px;
-  margin-bottom: -40px;
-`;
-
-const Name = styled.div`
+const LifeWrap = styled.div`
+  position: relative;
   font-size: 2rem;
 `;
 
+const LifeCount = styled.div`
+  font-size: 5rem;
+  margin-bottom: -3rem;
+`;
+
+const Name = styled.div`
+  font-size: 3rem;
+`;
+
 const Members = styled.div`
-  font-size: .8rem;
+  font-size: 1.5rem;
 `;
