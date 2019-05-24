@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState, useCallback } from 'react';
 import styled from '@emotion/styled';
-import Logo from '../shared/component/logo';
 import Loader from '../shared/component/loader';
 import ErrorDetail from '../shared/component/error-detail';
 import Team from './component/team';
@@ -29,7 +28,7 @@ const App = ({ eventName, isPreview }) => {
     <Wrap>
       {isPreview ? (<Nav><Preview sendUpdate={onClickSendUpdate} /></Nav>) : null}
       <header>
-        <Logo eventName="extreme" />
+        <img src="./image/extreme/logo.png" height="62" alt="" />
       </header>
       <Union>
         <Counter
@@ -63,6 +62,8 @@ export default App;
 
 const Wrap = styled.div`
   background-color: #333;
+  background-image: url('./image/extreme/bg.png');
+  background-size: cover;
   padding: 20px;
   box-sizing: border-box;
 `;
