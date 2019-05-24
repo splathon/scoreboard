@@ -77,14 +77,14 @@ const Nav = styled.nav`
 const Union = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: -30px auto;
+  margin: 0 auto -130px;
   font-size: 4rem;
 `;
 
 const Matching = styled.div`
   display: grid;
   grid-template-columns: 40% 20% 40%;
-  margin: 50px auto;
+  margin: 30px auto;
 `;
 
 const Vs = styled.div`
