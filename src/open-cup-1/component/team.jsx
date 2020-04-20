@@ -6,7 +6,6 @@ const Team = ({ name, members, life, lifeMax, id }) => (
   <Wrap id={id}>
     <LifeWrap>
       <LifeCount>{life}</LifeCount>
-      {life === 1 ? (<Pinch id={id}>ピンチ！</Pinch>) : null}
     </LifeWrap>
     <LifeCounterWrap>
       <Counter cur={life} total={lifeMax} fillColor="#ff66ee" char="♥" />
