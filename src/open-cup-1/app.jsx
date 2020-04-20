@@ -5,7 +5,6 @@ import Loader from '../shared/component/loader';
 import ErrorDetail from '../shared/component/error-detail';
 import Team from './component/team';
 import Result from './component/result';
-import Counter from './component/counter';
 import Preview from './component/preview';
 import { useFetch, useBroadcastChannel } from './hooks';
 
@@ -23,27 +22,13 @@ const App = ({ eventName, isPreview }) => {
     return <ErrorDetail err={viewData} />;
   }
 
-  const { union, matching, results } = viewData;
+  const { matching, results } = viewData;
   return (
     <Wrap>
       {isPreview ? (<Nav><Preview sendUpdate={onClickSendUpdate} /></Nav>) : null}
       <header>
         <img src="./image/opencup/logo.png" height="62" alt="" />
       </header>
-      <Union>
-        <Counter
-          cur={union.alfa.restTeam}
-          total={union.alfa.restTeamMax}
-          char="♦"
-          fillColor="#ffe575"
-        />
-        <Counter
-          cur={union.bravo.restTeam}
-          total={union.bravo.restTeamMax}
-          char="♦"
-          fillColor="#3a80f1"
-        />
-      </Union>
       <Matching>
         <Team {...matching.alfa} id="alfa" />
         <Vs>VS</Vs>
@@ -73,13 +58,6 @@ const Nav = styled.nav`
   top: 0;
   left: 0;
   right: 0;
-`;
-
-const Union = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto -130px;
-  font-size: 4rem;
 `;
 
 const Matching = styled.div`
