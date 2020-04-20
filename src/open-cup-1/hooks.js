@@ -5,8 +5,8 @@ import parser from './csv-parser';
 const fetchData = async () => {
   try {
     const csv = await fetchAllCsv({
-      base: { id: '1dko-lAxN6sisaf13kx8s2fvuyU6i3qt8oLUxM7H-tuM', gid: 0 },
-      team: { id: '1dko-lAxN6sisaf13kx8s2fvuyU6i3qt8oLUxM7H-tuM', gid: 655221116 },
+      base: { id: '1EbCqfd0QWxyR0ONRDnMtKrE3m10HH-AI43joTQ8P6jQ', gid: 0 },
+      team: { id: '1EbCqfd0QWxyR0ONRDnMtKrE3m10HH-AI43joTQ8P6jQ', gid: 655221116 },
     });
     return parser(csv);
   } catch(err) {
