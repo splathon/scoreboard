@@ -8,7 +8,7 @@ const Team = ({ name, members, life, lifeMax, id }) => (
       <LifeCount>{life}</LifeCount>
     </LifeWrap>
     <LifeCounterWrap>
-      <Counter cur={life} total={lifeMax} fillColor="#ff66ee" char="♥" />
+      <Counter cur={life} total={lifeMax} fillColor="#ff66ee" char="★" />
     </LifeCounterWrap>
     <Name>{name}</Name>
     <Members>
