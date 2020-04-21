@@ -12,12 +12,6 @@ export default ({ base, team }) => {
     5 + resultsRange.max + 1
   );
 
-  // union
-  const union = {
-    alfa: { restTeam: unionARestTeam|0, restTeamMax: unionARestTeamMax|0 },
-    bravo: { restTeam: unionBRestTeam|0, restTeamMax: unionBRestTeamMax|0 },
-  };
-
   // matching
   const alfa = {
     name: alfaName,
@@ -64,7 +58,6 @@ export default ({ base, team }) => {
   }
 
   return {
-    union,
     matching: { alfa, bravo },
     results
   };
