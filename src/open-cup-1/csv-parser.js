@@ -3,8 +3,9 @@ export default ({ base, team }) => {
   const teamCells = team;
 
   // parse raw data
-  const [,, alfaName, alfaLife, alfaLifeMax, unionARestTeam, unionARestTeamMax, , minIdx] = baseCells[1];
-  const [,, bravoName, bravoLife, bravoLifeMax, unionBRestTeam, unionBRestTeamMax,, maxIdx] = baseCells[2];
+  // [現在の対戦チーム,,チーム名,取得ゲーム数,マッチポイント,画面に表示する試合id,id]
+  const [,, alfaName, alfaLife, alfaLifeMax,, minIdx] = baseCells[1];
+  const [,, bravoName, bravoLife, bravoLifeMax,, maxIdx] = baseCells[2];
   const resultsRange = { min: minIdx|0, max: maxIdx|0 };
   const resultCells = baseCells.slice(
     5 + resultsRange.min,
