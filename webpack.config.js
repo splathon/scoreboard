@@ -7,6 +7,7 @@ const config = {
   entry: {
     'extreme-union-match-1': './src/extreme-union-match-1/main.jsx',
     'open-cup-1': './src/open-cup-1/main.jsx',
+    'open-cup-1': './src/open-cup-2/main.jsx',
   },
   output: {
     path: `${rootPath}/docs`,
